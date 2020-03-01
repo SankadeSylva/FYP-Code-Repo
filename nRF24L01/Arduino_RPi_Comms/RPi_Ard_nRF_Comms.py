@@ -9,8 +9,10 @@ GPIO.setmode(GPIO.BCM)
 
 # setup pipe address (in hexcode)
 pipes = [[0xE0, 0xE0, 0xF1, 0xF1, 0xE0], [0xF1, 0xF1, 0xF0, 0xF0, 0xE0]]
+#address = "00001";
 
 # begin the radio using GPIO08 as CE and GPIO25 as CSN pins
+radio = NRF24(GPIO, spidev.SpiDev())
 radio.begin(0, 25)
 
 # set payload size as 32 bit, channel address as 76, data rate of 1 mbps and power levels as minimum
@@ -19,8 +21,13 @@ radio.setChannel(0x76)
 radio.setDataRate(NRF24.BR_1MBPS)
 radio.setPALevel(NRF24.PA_MIN)
 
+radio.setAutoAck(True)
+radio.enableDynamicPayloads()
+radio.enableAckPayload()
+
 # open the pipes to start writing the data and print the basic details of nRF24l01
 radio.openWritingPipe(pipes[0])
+#radio.openWritingPipe(address)
 radio.printDetails()
 
 # prepare a message in the string form. This message will be sent to Arduino UNO
