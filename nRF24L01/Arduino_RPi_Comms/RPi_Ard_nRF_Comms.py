@@ -1,4 +1,4 @@
-# (ensure libraries located in same directory on RPi)
+# ensure libraries located in same directory on RPi
 import RPi.GPIO as GPIO
 import time
 import spidev
