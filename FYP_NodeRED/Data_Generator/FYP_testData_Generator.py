@@ -38,23 +38,23 @@ with open(f_path, "w")as DataFile:
 
             # generate data depending on season:
             if month in SW_monsoon_season:
-                temp = round((random.uniform(22, 33)), 2)
+                Temp = round((random.uniform(22, 33)), 2)
                 Humidity = round((random.uniform(70, 100)), 1)
                 Sun_Hrs = round((random.uniform(6, 8)), 1)
                 Soil_M = round((random.uniform(40, 70)), 2)
 
             elif month in SW_dry_season:
-                temp = round((random.uniform(28, 38)), 2)
+                Temp = round((random.uniform(28, 38)), 2)
                 Humidity = round((random.uniform(40, 60)), 1)
                 Sun_Hrs = round((random.uniform(8, 12)), 1)
                 Soil_M = round((random.uniform(20, 50)), 2)
             else:
-                temp = round((random.uniform(23, 32)), 2)
+                Temp = round((random.uniform(23, 32)), 2)
                 Humidity = round((random.uniform(60, 90)), 1)
                 Sun_Hrs = round((random.uniform(7, 9)), 1)
                 Soil_M = round((random.uniform(38, 70)), 2)
 
-            data_list = [date_time, temp, Humidity, Sun_Hrs, Soil_M]
+            data_list = [date_time, Temp, Humidity, Sun_Hrs, Soil_M]
             csv_writer.writerow(data_list)
 
             # if month is february and the 28th day:
