@@ -1,1 +1,140 @@
-[{"id":"3c94dc7d.d2f4bc","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"c873eaf4.f41128","type":"csv","z":"3c94dc7d.d2f4bc","name":"","sep":",","hdrin":true,"hdrout":"","multi":"one","ret":"\\n","temp":"","skip":"0","strings":true,"x":130,"y":200,"wires":[["feea246c.8d8da","e2da3df2.8d7be"]]},{"id":"9bff1e00.05ab58","type":"file in","z":"3c94dc7d.d2f4bc","name":"","filename":"/Users/sankadesylva/Documents/Python_Projects/FYP_Python_Code/Data_Generator/FYP_Sensor_testData.csv","format":"lines","chunk":false,"sendError":false,"encoding":"none","x":450,"y":140,"wires":[["c873eaf4.f41128"]]},{"id":"feea246c.8d8da","type":"debug","z":"3c94dc7d.d2f4bc","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","x":350,"y":200,"wires":[]},{"id":"6547baf0.38ff3c","type":"inject","z":"3c94dc7d.d2f4bc","name":"Inject","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":true,"onceDelay":0.1,"x":110,"y":80,"wires":[["9bff1e00.05ab58"]]},{"id":"e2da3df2.8d7be","type":"json","z":"3c94dc7d.d2f4bc","name":"","property":"payload","action":"","pretty":true,"x":350,"y":280,"wires":[["f878bad3.987788","b4488a17.031ed"]]},{"id":"f878bad3.987788","type":"debug","z":"3c94dc7d.d2f4bc","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":430,"y":360,"wires":[]},{"id":"b4488a17.031ed","type":"influxdb out","z":"3c94dc7d.d2f4bc","influxdb":"b5edf422.116f78","name":"Weather","measurement":"stations","precision":"s","retentionPolicy":"","x":640,"y":280,"wires":[]},{"id":"b5edf422.116f78","type":"influxdb","z":"","hostname":"127.0.0.1","port":"8086","protocol":"http","database":"WEATHER","name":"Weather","usetls":false,"tls":""}]
+[
+    {
+        "id": "855aa61f.e91578",
+        "type": "tab",
+        "label": "FYP_Flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "59755e6e.0156a",
+        "type": "csv",
+        "z": "855aa61f.e91578",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "59bef1f0.8d453",
+                "82f02083.3761c",
+                "4109e2ba.64e57c"
+            ]
+        ]
+    },
+    {
+        "id": "f7387a89.a870d8",
+        "type": "file in",
+        "z": "855aa61f.e91578",
+        "name": "",
+        "filename": "/home/pi/FYP-Code-Repo/FYP_NodeRED/Data_Generator/FYP_Sensor_testData.csv",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "59755e6e.0156a"
+            ]
+        ]
+    },
+    {
+        "id": "59bef1f0.8d453",
+        "type": "debug",
+        "z": "855aa61f.e91578",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 350,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9a139869.907518",
+        "type": "inject",
+        "z": "855aa61f.e91578",
+        "name": "Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "f7387a89.a870d8"
+            ]
+        ]
+    },
+    {
+        "id": "82f02083.3761c",
+        "type": "json",
+        "z": "855aa61f.e91578",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "4470b2b9.e19b4c"
+            ]
+        ]
+    },
+    {
+        "id": "4470b2b9.e19b4c",
+        "type": "debug",
+        "z": "855aa61f.e91578",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 430,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "4109e2ba.64e57c",
+        "type": "influxdb out",
+        "z": "855aa61f.e91578",
+        "influxdb": "ea82a9a1.0d2028",
+        "name": "AgriData",
+        "measurement": "OFDs",
+        "precision": "",
+        "retentionPolicy": "",
+        "x": 460,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ea82a9a1.0d2028",
+        "type": "influxdb",
+        "z": "",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "AGRIDATA",
+        "name": "AgriData",
+        "usetls": false,
+        "tls": ""
+    }
+]
