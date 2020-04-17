@@ -1,0 +1,19 @@
+____ See here for live demo of other potentially useful Grafana features: ____
+https://play.grafana.org/d/000000012/grafana-play-home?orgId=1
+
+____ See more info here too: ____
+https://grafana.com/grafana/
+
+____ Interesting/potential Grafana modules (mostly panels): ____
+
+- Looping animated map for Grafana:
+https://grafana.com/grafana/plugins/citilogics-geoloop-panel
+
+- Carpet plot panel plugin for Grafana:
+https://grafana.com/grafana/plugins/petrslavotinek-carpetplot-panel
+
+- World Map panel for Grafana:
+https://grafana.com/grafana/plugins/grafana-worldmap-panel
+
+
+
